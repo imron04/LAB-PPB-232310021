@@ -1,5 +1,6 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { color_list, styles } from "../styles/StyleApps";
 
@@ -20,6 +21,11 @@ export default function BookCollections({ books }) {
 }
 
 const BookList = ({ books }) => {
+  const router = useRouter();
+
+  const handleDetailBook = (id) => {
+    router.push(`/books/${id}`);
+  };
   return (
     <View style={styles.book_grid}>
       {books.map((book, index) => (
@@ -27,6 +33,7 @@ const BookList = ({ books }) => {
           key={index}
           style={[styles.book_card, styles.shadow]}
           activeOpacity={0.7}
+          onPress={() => handleDetailBook(book.id)}
         >
           <BookItemImg book={book} />
           <BookItemContent book={book} />

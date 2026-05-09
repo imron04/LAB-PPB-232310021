@@ -8,7 +8,7 @@ import Header from "../latihan4/components/Header";
 import { color_list, styles } from "./styles/StyleApps";
 
 export default function HomeScreen() {
-  const lastBook = ListBook[ListBook.length - 1];
+  const lastBook = ListBook[ListBook.length - 2];
 
   return (
     <SafeAreaView style={styles.container}>

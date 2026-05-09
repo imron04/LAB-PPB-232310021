@@ -1,7 +1,7 @@
 import AntDesign from "@expo/vector-icons/AntDesign";
+import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from "../styles/StyleApps";
-
 const CTABook = ({ book }) => {
   return (
     <View style={[styles.new_com_container, styles.shadow]}>
@@ -16,7 +16,7 @@ const CTABook = ({ book }) => {
           }}
         >
           <CTAInfoBook book={book} />
-          <ButtonRead />
+          <ButtonRead book={book} />
         </View>
       </View>
     </View>
@@ -27,7 +27,7 @@ const CTAImage = ({ book }) => {
   return (
     <View style={{ position: "relative" }}>
       <Image
-        source={{ uri: book.img }}
+        source={book.img}
         style={[styles.new_book_img, styles.shadow]}
         resizeMode="cover"
       />
@@ -58,9 +58,18 @@ const CTAInfoBook = ({ book }) => {
   );
 };
 
-const ButtonRead = () => {
+const ButtonRead = ({ book }) => {
+  const router = useRouter();
+
+  const handleReadNow = () => {
+    router.push(`/books/${book.id}`);
+  };
+
   return (
-    <TouchableOpacity style={[styles.btn_read, styles.shadow]}>
+    <TouchableOpacity
+      style={[styles.btn_read, styles.shadow]}
+      onPress={handleReadNow}
+    >
       <Text style={styles.btn_read_text}>Read Now</Text>
     </TouchableOpacity>
   );
