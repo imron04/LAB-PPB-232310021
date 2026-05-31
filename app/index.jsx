@@ -13,6 +13,6 @@ export default function Index() {
   );
 }
 //   //   // return <Redirect href="module-latihan/Praktikum1" />;
-// export { default } from "@/components/module-latihan/Praktikum3/index";
+// export { default } from "@/components/e-catalogs/explore";
 
 // export { default } from "@/components/module-latihan/latihan5/praktikum";

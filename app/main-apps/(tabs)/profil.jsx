@@ -1,4 +1,1 @@
-import { Text } from "react-native";
-export default function Profil() {
-  return <Text>Halaman Profile</Text>;
-}
+export { default } from "@/components/praktikum7/profile";
